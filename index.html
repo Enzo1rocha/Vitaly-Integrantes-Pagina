@@ -222,7 +222,8 @@
                 initials: "ER",
                 photo: "./assets/images/enzo.jpg",
                 github: "https://github.com/Enzo1rocha",
-                linkedin: "https://www.linkedin.com/in/enzo1rocha/"
+                linkedin: "https://www.linkedin.com/in/enzo1rocha/",
+                instagram: "https://www.instagram.com/enzo1rocha/"
             },
             {
                 name: "Kaique Miranda",
@@ -230,31 +231,35 @@
                 initials: "KM",
                 photo: "./assets/images/kaique.jpg",
                 github: "https://github.com/KaiqueMi",
-                linkedin: "https://www.linkedin.com/in/kaique-miranda-251349305/"
+                linkedin: "https://www.linkedin.com/in/kaique-miranda-251349305/",
+                instagram: "https://www.instagram.com/_kaique_mssilva/"
             },
             {
                 name: "Kaue de Oliveira Tanzi",
-                role: "Frontend",
+                role: "Frontend e Documentação",
                 initials: "KT",
                 photo: "./assets/images/kaue.png",
                 github: "https://github.com/KaueTanzi",
-                linkedin: "https://www.linkedin.com/in/kaue-oliveira-tanzi-3055672b2/"
+                linkedin: "https://www.linkedin.com/in/kaue-oliveira-tanzi-3055672b2/",
+                instagram: "https://www.instagram.com/tanzikaue7/"
             },
             {
                 name: "Otávio Augusto Soares Toniolo",
-                role: "Frontend",
+                role: "Frontend Tech Lead",
                 initials: "OT",
                 photo: "./assets/images/otavio.png",
                 github: "https://github.com/otaviostack",
-                linkedin: "https://www.linkedin.com/in/otavio-augusto-aa0783287/"
+                linkedin: "https://www.linkedin.com/in/otavio-augusto-aa0783287/",
+                instagram: "https://www.instagram.com/otavioaust/"
             },
             {
                 name: "Vitor Sousa Rodrigues",
-                role: "Backend e IA",
+                role: "Fullstack e DevOps",
                 initials: "VR",
                 photo: "./assets/images/vitor.jpg",
                 github: "https://github.com/Vitor07Rodrigues",
-                linkedin: "https://www.linkedin.com/in/vitor-sousa-rodrigues-a09963379/"
+                linkedin: "https://www.linkedin.com/in/vitor-sousa-rodrigues-a09963379/",
+                instagram: "https://www.instagram.com/vtr_s0/"
             }
         ];
 
@@ -262,6 +267,12 @@
             <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.61 1.21 3.25.93.1-.72.39-1.21.71-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.62 5.23-5.11 5.51.4.35.76 1.03.76 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
             </svg>`;
+
+        const instagramIcon = `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.64-.07-4.85 0-3.2.01-3.58.07-4.85C2.38 3.92 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44Z"/>
+            </svg>`;
+
 
         const linkedinIcon = `
             <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -318,6 +329,16 @@
                 linkedin.setAttribute("aria-label", `LinkedIn de ${member.name}`);
                 linkedin.innerHTML = linkedinIcon + " LinkedIn";
                 links.appendChild(linkedin);
+            }
+
+            if (member.instagram) {
+                const instagram = document.createElement("a");
+                instagram.href = member.instagram;
+                instagram.target = "_blank";
+                instagram.rel = "noopener noreferrer";
+                instagram.setAttribute("aria-label", `Instagram de ${member.name}`);
+                instagram.innerHTML = instagramIcon + " Instagram";
+                links.appendChild(instagram);
             }
 
             card.append(avatar, name, role, links);
