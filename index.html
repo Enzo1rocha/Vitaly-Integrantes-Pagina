@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#103b29">
+
+    <title>Nosso Time | Vitaly</title>
+
+    <style>
+        :root {
+            --background: #103b29;
+            --card: #164632;
+            --card-hover: #1b523b;
+            --accent: #a3c66b;
+            --text: #edf3ed;
+            --muted: #a9bbae;
+            --border: rgba(255, 255, 255, 0.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--background);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        main {
+            width: min(1100px, 90%);
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .team-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+        }
+
+        .team-header h1 span {
+            color: var(--accent);
+        }
+
+        .team-header p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .member-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px 22px;
+            text-align: center;
+            transition: 0.25s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+            border-color: rgba(163, 198, 107, 0.4);
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: rgba(163, 198, 107, 0.13);
+            border: 2px solid rgba(163, 198, 107, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-card h2 {
+            font-size: 1.05rem;
+            margin-bottom: 9px;
+            overflow-wrap: anywhere;
+        }
+
+        .member-role {
+            color: var(--muted);
+            font-size: 0.85rem;
+            min-height: 40px;
+            margin-bottom: 22px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 13px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.8rem;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(163, 198, 107, 0.08);
+        }
+
+        .social-links svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 15px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        footer strong {
+            color: var(--accent);
+        }
+
+        @media (max-width: 850px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            main {
+                padding: 60px 0;
+            }
+
+            .team-header {
+                margin-bottom: 35px;
+            }
+
+            .team-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 22px;
+                }
+
+            .member-card {
+                flex: 1 1 300px;
+                max-width: 340px;
+                /* mantenha o restante das propriedades */
+                }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <header class="team-header">
+            <h1>Nosso time da <span>Vitaly</span></h1>
+            <p>Conheça as pessoas por trás do projeto.</p>
+        </header>
+
+        <section class="team-grid" id="team-grid">
+            <!-- Cards gerados pelo JavaScript -->
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Vitaly</strong> · Personal Health Record</p>
+        <p style="margin-top: 5px;">Desenvolvido com tecnologia e cuidado.</p>
+    </footer>
+
+    <script>
+        const members = [
+            {
+                name: "Enzo Oliveira da Rocha",
+                role: "Project Manager e Fullstack",
+                initials: "ER",
+                photo: "./assets/images/enzo.jpg",
+                github: "https://github.com/Enzo1rocha",
+                linkedin: "https://www.linkedin.com/in/enzo1rocha/"
+            },
+            {
+                name: "Kaique Miranda",
+                role: "Frontend e Designer",
+                initials: "KM",
+                photo: "./assets/images/kaique.jpg",
+                github: "https://github.com/KaiqueMi",
+                linkedin: "https://www.linkedin.com/in/kaique-miranda-251349305/"
+            },
+            {
+                name: "Kaue de Oliveira Tanzi",
+                role: "Frontend",
+                initials: "KT",
+                photo: "./assets/images/kaue.png",
+                github: "https://github.com/KaueTanzi",
+                linkedin: "https://www.linkedin.com/in/kaue-oliveira-tanzi-3055672b2/"
+            },
+            {
+                name: "Otávio Augusto Soares Toniolo",
+                role: "Frontend",
+                initials: "OT",
+                photo: "./assets/images/otavio.png",
+                github: "https://github.com/otaviostack",
+                linkedin: "https://www.linkedin.com/in/otavio-augusto-aa0783287/"
+            },
+            {
+                name: "Vitor Sousa Rodrigues",
+                role: "Backend e IA",
+                initials: "VR",
+                photo: "./assets/images/vitor.jpg",
+                github: "https://github.com/Vitor07Rodrigues",
+                linkedin: "https://www.linkedin.com/in/vitor-sousa-rodrigues-a09963379/"
+            }
+        ];
+
+        const githubIcon = `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.68-3.76-1.32-3.76-1.32-.5-1.29-1.24-1.63-1.24-1.63-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.61 1.21 3.25.93.1-.72.39-1.21.71-1.49-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.11-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.29-2.62 5.23-5.11 5.51.4.35.76 1.03.76 2.08V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+            </svg>`;
+
+        const linkedinIcon = `
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.53v16.94c0 .85.69 1.53 1.55 1.53h16.9c.86 0 1.55-.68 1.55-1.53V3.53c0-.85-.69-1.53-1.55-1.53ZM7.93 18.34H4.96V9.1h2.97v9.24ZM6.44 7.84a1.72 1.72 0 1 1 0-3.44 1.72 1.72 0 0 1 0 3.44Zm11.9 10.5h-2.96v-4.5c0-1.07-.02-2.45-1.5-2.45-1.5 0-1.73 1.17-1.73 2.37v4.58H9.19V9.1h2.84v1.26h.04c.4-.73 1.36-1.5 2.8-1.5 3 0 3.56 1.97 3.56 4.53v4.95Z"/>
+            </svg>`;
+
+        const grid = document.getElementById("team-grid");
+
+        members.forEach(member => {
+            const card = document.createElement("article");
+            card.className = "member-card";
+
+            const avatar = document.createElement("div");
+            avatar.className = "avatar";
+
+            if (member.photo) {
+                const img = document.createElement("img");
+                img.src = member.photo;
+                img.alt = `Foto de ${member.name}`;
+                img.loading = "lazy";
+                img.onerror = () => {
+                    avatar.textContent = member.initials;
+                };
+                avatar.appendChild(img);
+                } else {
+                avatar.textContent = member.initials;
+                }
+
+
+            const name = document.createElement("h2");
+            name.textContent = member.name;
+
+            const role = document.createElement("p");
+            role.className = "member-role";
+            role.textContent = member.role;
+
+            const links = document.createElement("div");
+            links.className = "social-links";
+
+            const github = document.createElement("a");
+            github.href = member.github;
+            github.target = "_blank";
+            github.rel = "noopener noreferrer";
+            github.setAttribute("aria-label", `GitHub de ${member.name}`);
+            github.innerHTML = githubIcon + " GitHub";
+
+            links.appendChild(github);
+
+            if (member.linkedin) {
+                const linkedin = document.createElement("a");
+                linkedin.href = member.linkedin;
+                linkedin.target = "_blank";
+                linkedin.rel = "noopener noreferrer";
+                linkedin.setAttribute("aria-label", `LinkedIn de ${member.name}`);
+                linkedin.innerHTML = linkedinIcon + " LinkedIn";
+                links.appendChild(linkedin);
+            }
+
+            card.append(avatar, name, role, links);
+            grid.appendChild(card);
+        });
+    </script>
+
+</body>
+</html>
